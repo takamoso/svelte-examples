@@ -6,10 +6,11 @@ import TerserPlugin from 'terser-webpack-plugin'
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
 const dev = process.env.NODE_ENV !== 'production'
+const entry = glob.sync('src/**/script.js').map(file => [path.basename(path.dirname(file)), path.resolve(__dirname, file)])
 
 export default {
   mode: process.env.NODE_ENV || 'development',
-  entry: Object.fromEntries(glob.sync('src/**/script.js').map(file => [path.basename(path.dirname(file)), path.resolve(__dirname, file)])),
+  entry: Object.fromEntries(entry),
   output: {
     filename: '[name]/script.js',
   },
@@ -59,14 +60,17 @@ export default {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: '[name]/index.html',
-      title: '',
-      meta: [
-        {'charset': 'utf-8'},
-        {'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge'},
-      ],
-      hash: true,
+    ...entry.map(([chunk]) => {
+      return new HtmlWebpackPlugin({
+        chunks: [chunk],
+        filename: `${chunk}/index.html`,
+        title: '',
+        meta: [
+          {'charset': 'utf-8'},
+          {'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge'},
+        ],
+        hash: true,
+      })
     }),
     new MiniCssExtractPlugin({
       filename: '[name]/style.css',
