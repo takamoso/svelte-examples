@@ -1,5 +1,6 @@
 import path from 'path'
 import glob from 'glob'
+import sveltePreprocess from 'svelte-preprocess'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
@@ -22,6 +23,11 @@ export default {
         use: {
           loader: 'svelte-loader',
           options: {
+            preprocess: sveltePreprocess({
+              defaults: {
+                style: 'scss',
+              },
+            }),
             // Enable it for the standard Webpack compilation flow (test: /\.s?css$/)
             emitCss: true,  // Default: false
             // Enable HMR only for dev mode
