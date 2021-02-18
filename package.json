@@ -3,6 +3,11 @@
   "engines": {
     "node": "14.x"
   },
+  "browserslist": [
+    ">0.25%",
+    "not dead",
+    "IE >= 10"
+  ],
   "author": "takamoso",
   "license": "MIT",
   "devDependencies": {
