@@ -3,6 +3,8 @@ import glob from 'glob'
 import sveltePreprocess from 'svelte-preprocess'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 import TerserPlugin from 'terser-webpack-plugin'
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
@@ -26,6 +28,14 @@ export default {
             preprocess: sveltePreprocess({
               defaults: {
                 style: 'scss',
+              },
+              postcss: {
+                plugins: !dev && [
+                  autoprefixer({
+                    grid: 'autoplace',
+                  }),
+                  cssnano(),
+                ],
               },
             }),
             // Enable it for the standard Webpack compilation flow (test: /\.s?css$/)
