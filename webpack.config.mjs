@@ -1,3 +1,4 @@
+import fs from 'fs/promises'
 import path from 'path'
 import glob from 'glob'
 import sveltePreprocess from 'svelte-preprocess'
@@ -10,6 +11,7 @@ import TerserPlugin from 'terser-webpack-plugin'
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
 const dev = process.env.NODE_ENV !== 'production'
 const entry = glob.sync('src/**/script.js').map(file => [path.basename(path.dirname(file)), path.resolve(__dirname, file)])
+const packages = await fs.readFile(path.resolve(__dirname, 'package.json'), 'utf-8')
 
 export default {
   mode: process.env.NODE_ENV || 'development',
@@ -23,35 +25,45 @@ export default {
   target: dev ? 'web' : 'browserslist',
   module: {
     rules: [
+      // Transpile js svelte helpers
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules\/(?!svelte)/,
+        use: 'babel-loader',
+      },
+      // Transpile svelte compiled templates
       {
         test: /\.(html|svelte)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'svelte-loader',
-          options: {
-            preprocess: sveltePreprocess({
-              defaults: {
-                style: 'scss',
+        exclude: packages['dependencies'] !== void 0 ? new RegExp(`node_modules\/(?!(${Object.keys(packages['dependencies']).join('|').replace(/\//g, '\\/')})\/).*`) : /node_modules/,
+        use: [
+          'babel-loader',
+          {
+            loader: 'svelte-loader',
+            options: {
+              preprocess: sveltePreprocess({
+                defaults: {
+                  style: 'scss',
+                },
+                postcss: {
+                  plugins: !dev && [
+                    autoprefixer({
+                      grid: 'autoplace',
+                    }),
+                    cssnano(),
+                  ],
+                },
+              }),
+              // Enable it for the standard Webpack compilation flow (test: /\.s?css$/)
+              emitCss: true,  // Default: false
+              // Enable HMR only for dev mode
+              hotReload: dev,  // Default: false
+              compilerOptions: {
+                // Svelte's dev mode MUST be enabled for HMR to work
+                dev,  // Default: false
               },
-              postcss: {
-                plugins: !dev && [
-                  autoprefixer({
-                    grid: 'autoplace',
-                  }),
-                  cssnano(),
-                ],
-              },
-            }),
-            // Enable it for the standard Webpack compilation flow (test: /\.s?css$/)
-            emitCss: true,  // Default: false
-            // Enable HMR only for dev mode
-            hotReload: dev,  // Default: false
-            compilerOptions: {
-              // Svelte's dev mode MUST be enabled for HMR to work
-              dev,  // Default: false
             },
           },
-        },
+        ],
       },
       {
         test: /\.s?css$/,
