@@ -19,7 +19,7 @@ export default {
   output: {
     filename: '[name]/script.js',
   },
-  // Hot reload will no longer work if a supported browser is specified in the browserslist field of package.json
+  // Hot reload will no longer work if the target browser is specified in the browserslist field of the .browserslistrc file or package.json
   // A workaround is to set {target: 'web'}
   // This issue will fix in webpack-dev-server v4
   target: dev ? 'web' : 'browserslist',
