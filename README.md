@@ -11,3 +11,4 @@
 1. [props-default-value](src/props-default-value)
 1. [counter](src/counter)
 1. [reactive-declarations](src/reactive-declarations)
+1. [text-inputs](src/text-inputs)
