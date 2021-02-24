@@ -12,3 +12,4 @@
 1. [counter](src/counter)
 1. [reactive-declarations](src/reactive-declarations)
 1. [text-inputs](src/text-inputs)
+1. [numeric-inputs](src/numeric-inputs)
