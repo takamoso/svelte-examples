@@ -13,3 +13,4 @@
 1. [reactive-declarations](src/reactive-declarations)
 1. [text-inputs](src/text-inputs)
 1. [numeric-inputs](src/numeric-inputs)
+1. [checkbox](src/checkbox)
