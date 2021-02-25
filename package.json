@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "webpack",
-    "watch": "webpack serve",
+    "watch": "webpack && webpack serve",
     "build": "cross-env NODE_ENV=\"production\" webpack"
   }
 }
