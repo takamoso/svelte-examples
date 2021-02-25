@@ -1,6 +1,6 @@
 # Svelte Examples
 
-## Collection
+## Introduction
 
 1. [hello-world](src/hello-world)
 1. [hello-world-scss](src/hello-world-scss)
