@@ -16,3 +16,4 @@
 1. [checkbox-inputs](src/checkbox-inputs)
 1. [group-inputs](src/group-inputs)
 1. [textarea-inputs](src/textarea-inputs)
+1. [file-inputs](src/file-inputs)
