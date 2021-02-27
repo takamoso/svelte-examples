@@ -28,12 +28,12 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
+  "dependencies": {
+    "marked": "^2.0.1"
+  },
   "scripts": {
     "start": "webpack",
     "watch": "webpack && webpack serve",
     "build": "cross-env NODE_ENV=\"production\" webpack"
-  },
-  "dependencies": {
-    "marked": "^2.0.1"
   }
 }
