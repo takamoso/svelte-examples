@@ -15,3 +15,4 @@
 1. [numeric-inputs](src/numeric-inputs)
 1. [checkbox-inputs](src/checkbox-inputs)
 1. [group-inputs](src/group-inputs)
+1. [textarea-inputs](src/textarea-inputs)
