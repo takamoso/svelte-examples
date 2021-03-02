@@ -19,3 +19,4 @@
 1. [select-multiple-inputs](src/select-multiple-inputs)
 1. [textarea-inputs](src/textarea-inputs)
 1. [file-inputs](src/file-inputs)
+1. [dimensions](src/dimensions)
