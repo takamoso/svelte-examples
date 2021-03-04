@@ -20,3 +20,4 @@
 1. [textarea-inputs](src/textarea-inputs)
 1. [file-inputs](src/file-inputs)
 1. [dimensions](src/dimensions)
+1. [on-mount](src/on-mount)
