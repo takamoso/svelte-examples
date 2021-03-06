@@ -44,8 +44,8 @@ export default {
                 defaults: {
                   style: 'scss',
                 },
-                postcss: {
-                  plugins: !dev && [
+                postcss: !dev && {
+                  plugins: [
                     autoprefixer({
                       grid: 'autoplace',
                     }),
