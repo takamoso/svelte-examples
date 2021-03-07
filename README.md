@@ -24,3 +24,4 @@
 1. [on-destroy](src/on-destroy)
 1. [on-destroy-util](src/on-destroy-util)
 1. [counter-store](src/counter-store)
+1. [auto-subscriptions](src/auto-subscriptions)
