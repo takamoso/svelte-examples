@@ -22,3 +22,4 @@
 1. [dimensions](src/dimensions)
 1. [on-mount](src/on-mount)
 1. [on-destroy](src/on-destroy)
+1. [on-destroy-util](src/on-destroy-util)
