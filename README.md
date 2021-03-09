@@ -26,3 +26,4 @@
 1. [counter-store](src/counter-store)
 1. [auto-subscriptions](src/auto-subscriptions)
 1. [writable-store](src/writable-store)
+1. [readable-stores](src/readable-stores)
