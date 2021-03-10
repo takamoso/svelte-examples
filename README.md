@@ -28,3 +28,4 @@
 1. [writable-stores](src/writable-stores)
 1. [readable-stores](src/readable-stores)
 1. [derived-stores](src/derived-stores)
+1. [custom-stores](src/custom-stores)
