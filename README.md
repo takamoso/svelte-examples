@@ -27,3 +27,4 @@
 1. [auto-subscriptions](src/auto-subscriptions)
 1. [writable-stores](src/writable-stores)
 1. [readable-stores](src/readable-stores)
+1. [derived-stores](src/derived-stores)
