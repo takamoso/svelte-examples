@@ -29,3 +29,4 @@
 1. [readable-stores](src/readable-stores)
 1. [derived-stores](src/derived-stores)
 1. [custom-stores](src/custom-stores)
+1. [dom-events](src/dom-events)
