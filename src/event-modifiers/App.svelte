@@ -1,0 +1,1 @@
+<button on:click|once={ () => alert('No more alerts') }>Clike me</button>
