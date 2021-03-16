@@ -31,3 +31,4 @@
 1. [custom-stores](src/custom-stores)
 1. [dom-events](src/dom-events)
 1. [event-modifiers](src/event-modifiers)
+1. [component-events](src/component-events)
