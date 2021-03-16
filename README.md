@@ -32,3 +32,4 @@
 1. [dom-events](src/dom-events)
 1. [event-modifiers](src/event-modifiers)
 1. [component-events](src/component-events)
+1. [event-forwarding](src/event-forwarding)
