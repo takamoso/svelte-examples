@@ -33,3 +33,4 @@
 1. [event-modifiers](src/event-modifiers)
 1. [component-events](src/component-events)
 1. [event-forwarding](src/event-forwarding)
+1. [event-forwarding-shorthand](src/event-forwarding-shorthand)
