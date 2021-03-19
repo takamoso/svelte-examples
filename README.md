@@ -34,3 +34,4 @@
 1. [component-events](src/component-events)
 1. [event-forwarding](src/event-forwarding)
 1. [event-forwarding-shorthand](src/event-forwarding-shorthand)
+1. [dom-event-forwarding](src/dom-event-forwarding)
